@@ -49,5 +49,16 @@ c =>").split('').to_set
     end
   end
 
+  def test_circular_depended_jobs
+    assert_raises "The jobs can’t have circular dependencies." do 
+      CodingExercise.parce_jobs("a =>
+        b => c
+        c => f
+        d => a
+        e =>
+        f => b")
+    end
+  end
+
 end
 

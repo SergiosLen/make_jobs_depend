@@ -22,6 +22,7 @@ def create_ordering dict
       next
     else
       sol= search_values_for dict, k,v
+
       items = items - sol
 
       tree = tree + sol unless (sol - tree).empty?
@@ -33,8 +34,12 @@ end
         
 def search_values_for dict,key,value
   ret=[key]
+  # print key,value,dict
   raise 'The job cannot depend on themselves.' if key==value
   while dict.has_key? value
+    if ret.include? value
+      raise 'The jobs can’t have circular dependencies.' 
+    end
     ret << value
     value= dict[value]
   end
