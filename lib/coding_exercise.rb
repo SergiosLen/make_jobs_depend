@@ -4,7 +4,14 @@ class CodingExercise
     if job.length ==0
       job
     else
-      ret = job.split(' =>').join()
+      ret=''
+      rets = job.split("\n").each do |u|
+        u.split(' =>').each do |j|
+          ret << j
+        end
+      end
+      ret
+        # .join()
 
 
     end

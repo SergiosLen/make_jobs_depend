@@ -9,5 +9,10 @@ class CodingExerciseTest < Minitest::Test
   def test_single_job
     assert_equal "a", CodingExercise.parce_jobs('a =>')
   end
+  def test_multiple_jobs
+    assert_equal 'abc', CodingExercise.parce_jobs("a =>
+b =>
+c =>")
+  end
 
 end
