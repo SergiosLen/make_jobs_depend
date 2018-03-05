@@ -11,3 +11,35 @@ class String
     return dict
   end
 end
+
+def create_ordering dict
+  items= dict.keys + dict.values 
+  items=items.uniq - [nil]
+  tree =[]
+  dict.each do |k,v|
+    # puts k,v,'aaaaadddddeee'
+    if v.nil? or not items.include? v
+      next
+    else
+      sol= search_values_for dict, k,v
+      items = items - sol
+
+      tree = tree + sol unless (sol - tree).empty?
+    end
+  end
+  # print items,tree,'bbbbb'
+  tree + items #.join
+end  
+        
+def search_values_for dict,key,value
+  ret=[key]
+  while dict.has_key? value
+    ret << value
+    value= dict[value]
+  end
+  ret.reverse
+end
+
+
+
+
