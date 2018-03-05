@@ -1,5 +1,10 @@
 class String
-  
+  # adding functionality to String Class to convert string to hash
+  # 
+  # Arguments: 
+  # separ the separator for new lines
+  # key_sep: the separator between values
+  # 
   def to_hash(separ="\n", key_sep='=>')
     converted_array = self.split(separ)
     dict = {}
@@ -33,6 +38,9 @@ def create_ordering dict
 end  
         
 def search_values_for dict,key,value
+  # Search foe dependences in the dict 
+  # 
+  # Arguments: a hash, the key to start the search and the value of the hash
   ret=[key]
   # print key,value,dict
   raise 'The job cannot depend on themselves.' if key==value
