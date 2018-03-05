@@ -33,6 +33,7 @@ end
         
 def search_values_for dict,key,value
   ret=[key]
+  raise 'The job cannot depend on themselves.' if key==value
   while dict.has_key? value
     ret << value
     value= dict[value]

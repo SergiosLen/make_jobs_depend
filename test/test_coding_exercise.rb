@@ -12,6 +12,7 @@ class CodingExerciseTest < Minitest::Test
       d => a
       e => b
       f =>")
+
   end
 
   def test_empty_string
@@ -38,6 +39,14 @@ c =>").split('').to_set
     assert @mul_jobs_with_multiple_orders.index('c') < @mul_jobs_with_multiple_orders.index('b')
     assert @mul_jobs_with_multiple_orders.index('b') < @mul_jobs_with_multiple_orders.index('e')
     assert @mul_jobs_with_multiple_orders.index('a') < @mul_jobs_with_multiple_orders.index('d')
+  end
+
+  def test_self_depended_jobs
+    assert_raises "The job cannot depend on themselves." do
+      CodingExercise.parce_jobs("a =>
+          b =>
+          c => c")
+    end
   end
 
 end

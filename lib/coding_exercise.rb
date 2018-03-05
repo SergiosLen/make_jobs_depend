@@ -9,8 +9,7 @@ class CodingExercise
       ret =job.to_hash
       tree =create_ordering ret 
       tree.join
-
-
+      
     end
   end
 
