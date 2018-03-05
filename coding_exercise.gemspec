@@ -5,7 +5,7 @@ Gem::Specification.new do |s|
   s.summary     = 'On the Beack coding exercise'
   s.authors     =["Sergios Lenis"]
   s.email       = 'sergioslenis@gmail.com'
-  s.files       = ["lib/coding_exercise.rb"]
+  s.files       = ["lib/coding_exercise.rb", 'lib/coding_exercise/helper.rb']
   s.licence     = 'MIT'
 end
 
